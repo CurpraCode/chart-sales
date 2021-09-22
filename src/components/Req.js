@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from "axios"
 import {Bar, Pie} from "react-chartjs-2"
-import styled from "styled-components"
+
 
 function Req() {
     const state = {
@@ -26,7 +26,7 @@ function Req() {
       .catch((err)=>err)
       
     return (
-        <Container>
+        <div>
             <div>
             <Bar
           data={state}
@@ -59,13 +59,9 @@ function Req() {
           }}
         />
         </div>
-        </Container>
+        </div>
     )
 }
 
 export default Req
 
-const Container = styled.div`
-    max-width:990px;
-    margin:0 auto;
-`
