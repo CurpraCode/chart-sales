@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from "axios"
-import {Bar} from "react-chartjs-2"
+import {Bar, Pie} from "react-chartjs-2"
+import styled from "styled-components"
 
 function Req() {
     const state = {
@@ -25,7 +26,8 @@ function Req() {
       .catch((err)=>err)
       
     return (
-        <div>
+        <Container>
+            <div>
             <Bar
           data={state}
           options={{
@@ -41,7 +43,29 @@ function Req() {
           }}
         />
         </div>
+        <div>
+        <Pie
+          data={state}
+          options={{
+            title:{
+              display:true,
+              text:'Average Sales per month -Bar Chart',
+              fontSize:20
+            },
+            legend:{
+              display:true,
+              position:'right'
+            }
+          }}
+        />
+        </div>
+        </Container>
     )
 }
 
 export default Req
+
+const Container = styled.div`
+    max-width:990px;
+    margin:0 auto;
+`
